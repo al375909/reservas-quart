@@ -15,7 +15,7 @@ import { getAnalytics } from "firebase/analytics";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDtZqDmN8SRUjMf2KNTtKEjDsjOUibUAOM",
-  authDomain: "reservas-quart.firebaseapp.com",
+  authDomain: "reservas-quart.web.com",
   projectId: "reservas-quart",
   storageBucket: "reservas-quart.appspot.com",
   messagingSenderId: "913379056592",
@@ -37,4 +37,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();
