@@ -1,19 +1,19 @@
-.App {
+.Calendar {
   text-align: center;
 }
 
-.App-logo {
+.Calendar-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .Calendar-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
+.Calendar-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,7 +24,7 @@
   color: white;
 }
 
-.App-link {
+.Calendar-link {
   color: #61dafb;
 }
 

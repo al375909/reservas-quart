@@ -1,12 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 
-// Import the functions you need from the SDKs you need
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
+// import reportWebVitals from "./reportWebVitals";
+// import { getAnalytics } from "firebase/analytics";
+
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import ContextWrapper from "../src/components/Calendar/context/ContextWrapper";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,10 +35,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <ContextWrapper>
+      <RouterProvider router={router} />
+    </ContextWrapper>
   </React.StrictMode>
 );
 
