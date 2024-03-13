@@ -14,7 +14,7 @@ import "@fontsource/roboto/700.css";
 // import { getAnalytics } from "firebase/analytics";
 
 import { initializeApp } from "firebase/app";
-import ContextWrapper from "../src/components/Calendar/context/ContextWrapper";
+import ContextWrapper from "../src/components/calendar/context/ContextWrapper";
 import SignIn from "./pages/SingIn";
 
 // TODO: Add SDKs for Firebase products that you want to use
