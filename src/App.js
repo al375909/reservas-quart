@@ -12,10 +12,9 @@ function App() {
       </header>
 
       <div className="container mx-auto mt-4">
-        <SignIn />
         <div className="grid grid-cols-9 gap-4">
           <div className="col-span-1"></div>
-          {/* <Calendar />   */}
+          <Calendar />
           <div className="col-span-1"></div>
         </div>
       </div>

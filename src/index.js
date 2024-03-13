@@ -15,6 +15,7 @@ import "@fontsource/roboto/700.css";
 
 import { initializeApp } from "firebase/app";
 import ContextWrapper from "../src/components/Calendar/context/ContextWrapper";
+import SignIn from "./pages/SingIn";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/sign-in",
+    element: <SignIn />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
