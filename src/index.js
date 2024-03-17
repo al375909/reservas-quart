@@ -20,6 +20,7 @@ import ContextWrapper from "./components/calendar/context/ContextWrapper";
 import SignIn from "./pages/signIn/SingIn";
 import { Register } from "./pages/register/Register";
 import { ContextProvider } from "./context/ReservasContextProvider";
+import AppRouter from "./router";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -42,30 +43,13 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
-console.log(auth);
+console.log(auth?.currentUser);
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/sign-in",
-    element: <SignIn />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ContextProvider app={app} auth={auth}>
-      <ContextWrapper>
-        <RouterProvider router={router} />
-      </ContextWrapper>
-    </ContextProvider>
+    <AppRouter />
   </React.StrictMode>
 );
 

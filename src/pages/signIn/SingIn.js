@@ -13,6 +13,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useReservasContext } from "../../context/ReservasContextProvider";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 
 function Copyright(props) {
   return (
@@ -32,22 +34,30 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
-  const { userId, setUserId } = useReservasContext();
-  console.log(userId);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    const userForm = {
       email: data.get("email"),
       password: data.get("password"),
-    });
+    }
 
-    setUserId((actualValue) => actualValue + 112);
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, userForm.email, userForm.password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
 
-    // handleTrySubmitAthenticate().then((response) => {
-    //   return response.data;
-    // });
+        console.log(user)
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage)
+      });
   };
 
   return (
