@@ -12,6 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useReservasContext } from "../../context/ReservasContextProvider";
 
 function Copyright(props) {
   return (
@@ -31,6 +32,9 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+  const { userId, setUserId } = useReservasContext();
+  console.log(userId);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -38,6 +42,12 @@ export default function SignIn() {
       email: data.get("email"),
       password: data.get("password"),
     });
+
+    setUserId((actualValue) => actualValue + 112);
+
+    // handleTrySubmitAthenticate().then((response) => {
+    //   return response.data;
+    // });
   };
 
   return (

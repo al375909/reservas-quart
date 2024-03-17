@@ -1,7 +1,7 @@
 import "./App.css";
 import Calendar from "./components/calendar/Calendar";
 import { Routes, Route } from "react-router-dom";
-import SignIn from "./pages/SingIn";
+import SignIn from "./pages/signIn/SingIn";
 
 function App() {
   return (

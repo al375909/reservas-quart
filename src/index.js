@@ -14,8 +14,12 @@ import "@fontsource/roboto/700.css";
 // import { getAnalytics } from "firebase/analytics";
 
 import { initializeApp } from "firebase/app";
-import ContextWrapper from "../src/components/calendar/context/ContextWrapper";
-import SignIn from "./pages/SingIn";
+import { getAuth } from "firebase/auth";
+
+import ContextWrapper from "./components/calendar/context/ContextWrapper";
+import SignIn from "./pages/signIn/SingIn";
+import { Register } from "./pages/register/Register";
+import { ContextProvider } from "./context/ReservasContextProvider";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,6 +40,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(app);
+console.log(auth);
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,13 +53,19 @@ const router = createBrowserRouter([
     path: "/sign-in",
     element: <SignIn />,
   },
+  {
+    path: "/register",
+    element: <Register />,
+  },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ContextWrapper>
-      <RouterProvider router={router} />
-    </ContextWrapper>
+    <ContextProvider app={app} auth={auth}>
+      <ContextWrapper>
+        <RouterProvider router={router} />
+      </ContextWrapper>
+    </ContextProvider>
   </React.StrictMode>
 );
 
